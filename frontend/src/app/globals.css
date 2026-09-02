@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #0A0A0F;
+  --color-surface: #131318;
+  --color-surface-hover: #1A1A22;
+  --color-primary: #5B5FEF;
+  --color-primary-hover: #4A4EDB;
+  --color-secondary: #22D3EE;
+  --color-text-primary: #F5F5F7;
+  --color-text-secondary: #9A9AA5;
+  --color-border: rgba(255,255,255,0.08);
+  --color-border-hover: rgba(255,255,255,0.15);
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, monospace;
+}
+
+* {
+  border-color: var(--color-border);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #0A0A0F;
+  color: #F5F5F7;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0A0A0F;
+}
+::-webkit-scrollbar-thumb {
+  background: #1A1A22;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2A2A35;
+}
+
+/* Focus styles */
+:focus-visible {
+  outline: 2px solid #5B5FEF;
+  outline-offset: 2px;
+}
+
+/* Selection */
+::selection {
+  background: rgba(91, 95, 239, 0.3);
+  color: #F5F5F7;
+}

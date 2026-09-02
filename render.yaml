@@ -1,0 +1,31 @@
+services:
+  # LarpTech Backend Web Service on Render
+  - type: web
+    name: larptech-backend
+    env: node
+    plan: free
+    region: oregon
+    rootDir: backend
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 5000
+      - key: CORS_ORIGIN
+        value: "*" # Or set to your Vercel URL e.g. https://your-project.vercel.app
+      - key: DATABASE_URL
+        fromDatabase:
+          name: larptech-db
+          property: connectionString
+
+databases:
+  # Optional: Managed PostgreSQL Database on Render
+  - name: larptech-db
+    plan: free
+    region: oregon
+    databaseName: app_db
+    user: postgres
